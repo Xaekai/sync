@@ -65,6 +65,9 @@ block content
     input#channelname.form-control(type="text", placeholder="Channel Name")
     p.text-muted New channels can be registered from the <a href="/account/channels">My Channels</a> page.
 
+append head
+  link(href="/css/custom-index.css", rel="stylesheet")
+
 append footer
   script(type="text/javascript").
     $("#channelname").keydown(function (ev) {
