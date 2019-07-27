@@ -1,8 +1,51 @@
 extends layout.pug
 
+mixin posterLink({ id, imdb })
+  a(href=`/s/${id}`): img(src=`//media.toonreboot.com/posters/${imdb}.h240.jpeg`)
+
+mixin generatePosterLinks()
+  -
+    const streams = [
+      { id: 'alwayssunny',   imdb: 'tt0472954', },
+      { id: 'americandad',   imdb: 'tt0397306', },
+      { id: 'bigbang',       imdb: 'tt0898266', },
+      { id: 'bobsburgers',   imdb: 'tt1561755', },
+      { id: 'cops',          imdb: 'tt0096563', },
+      { id: 'familyguy',     imdb: 'tt0182576', },
+      { id: 'futurama',      imdb: 'tt0149460', },
+      { id: 'kennyspenny',   imdb: 'tt0384746', },
+      { id: 'kingofthehill', imdb: 'tt0118375', },
+      { id: 'mrpickles',     imdb: 'tt2950342', },
+      { id: 'reno911',       imdb: 'tt0370194', },
+      { id: 'rickandmorty',  imdb: 'tt2861424', },
+      { id: 'seinfeld',      imdb: 'tt0098904', },
+      { id: 'simpsons',      imdb: 'tt0096697', },
+      { id: 'southpark',     imdb: 'tt0121955', },
+      { id: 'spongebob',     imdb: 'tt0206512', },
+      { id: 'taahm',         imdb: 'tt0369179', },
+      { id: 'theoffice',     imdb: 'tt0386676', },
+    ]
+
+    const streamsChunks = [];
+
+    for (var i = 0; i < Math.ceil(streams.length / 4); i++) {
+      streamsChunks.push(streams.slice(4 * i, 4 * (i + 1)));
+    }
+  each chunk in streamsChunks
+    .row
+      each stream in chunk
+        -console.log('Poster linking chunk:', stream)
+        +posterLink(stream)
+
+
+
 block content
+  .row
+    .col-lg-9.col-md-9
+      +generatePosterLinks()
+
   .col-lg-9.col-md-9
-    h3 Public Channels
+    h3 Channels
     table.table.table-bordered.table-striped
       thead
         th Channel
@@ -14,7 +57,7 @@ block content
             td: a(href=`/${channelPath}/${chan.name}`) #{chan.pagetitle} (#{chan.name})
             td= chan.usercount
             td= chan.mediatitle
-  .col-lg-3.col-md-3
+  .col-lg-3.col-md-3.hidden
     h3 Enter Channel
     input#channelname.form-control(type="text", placeholder="Channel Name")
     p.text-muted New channels can be registered from the <a href="/account/channels">My Channels</a> page.
@@ -26,3 +69,6 @@ append footer
         location.href = "/#{channelPath}/" + $("#channelname").val();
       }
     });
+
+
+

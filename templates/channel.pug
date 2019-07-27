@@ -59,7 +59,7 @@ html(lang="en")
           #controlsrow.row
             #leftcontrols.col-lg-5.col-md-5
               button#newpollbtn.btn.btn-sm.btn-default New Poll
-              button#emotelistbtn.btn.btn-sm.btn-default Emote List
+              button#emotelistbtn.btn.btn-sm.btn-default.hidden Emote List
             #rightcontrols.col-lg-7.col-md-7
               #plcontrol.btn-group
                 button#showsearch.btn.btn-sm.btn-default(title="Search for a video", data-toggle="collapse", data-target="#searchcontrol")
@@ -259,3 +259,4 @@ html(lang="en")
     script(defer, src="/js/dash.all.min.js")
     script(defer, src="/js/videojs-dash.js")
     script(defer, src="https://player.twitch.tv/js/embed/v1.js")
+    script(defer, src="/js/custom.js")

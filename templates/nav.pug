@@ -8,7 +8,7 @@ mixin navheader()
 
 mixin navdefaultlinks()
   li
-    a(href="/") Home
+    a(href="/") Shows
   li.dropdown
     a.dropdown-toggle(href="#", data-toggle="dropdown") Account
       b.caret
@@ -23,6 +23,13 @@ mixin navdefaultlinks()
       else
         li: a(href="/login") Login
         li: a(href="/register") Register
+  li.dropdown
+    a.dropdown-toggle(href="#", data-toggle="dropdown") Rules
+      b.caret
+    ul.dropdown-menu
+        li: a(href="/") No Racism
+        li: a(href="/") No Sexism
+        li: a(href="/") Don't be a dick
 
 mixin navsuperadmin(newTab)
   if superadmin

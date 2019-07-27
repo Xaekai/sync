@@ -1,3 +1,5 @@
+const DEFAULT_LAYOUT = "synchtube-fluid"
+
 var CL_VERSION = 3.0;
 var GS_VERSION = 1.7; // Google Drive Userscript
 
@@ -113,7 +115,7 @@ var IGNORED = getOrDefault("ignorelist", []);
 
 var USEROPTS = {
     theme                : getOrDefault("theme", DEFAULT_THEME), // Set in head template
-    layout               : getOrDefault("layout", "fluid"),
+    layout               : getOrDefault("layout", DEFAULT_LAYOUT),
     synch                : getOrDefault("synch", true),
     hidevid              : getOrDefault("hidevid", false),
     show_timestamps      : getOrDefault("show_timestamps", true),
@@ -232,9 +234,9 @@ function eraseCookie(name) {
     var localVersion = parseFloat(getOpt("version"));
     if (isNaN(localVersion)) {
         USEROPTS.theme = DEFAULT_THEME;
-        USEROPTS.layout = "fluid";
+        USEROPTS.layout = DEFAULT_LAYOUT;
         setOpt("theme", DEFAULT_THEME);
-        setOpt("layout", "fluid");
+        setOpt("layout", DEFAULT_LAYOUT);
         setOpt("version", CL_VERSION);
     }
 })();
