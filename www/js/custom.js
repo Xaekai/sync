@@ -5,7 +5,7 @@ $('#chatwrap').empty()
 const CHATBOX='horrorshow'
 
 // Don't fucking change the ID unless you change it in the function below too.
-$('#chatwrap').html(`<iframe id=${CHATBOX} src="https://www6.cbox.ws/box/?boxid=827508&amp;boxtag=bc8zpm" frameborder="0" allow="autoplay" allowfullscreen="1" height="400" width="100%"></iframe>`)
+$('#chatwrap').html(`<iframe id="${CHATBOX}" src="https://www6.cbox.ws/box/?boxid=827508&amp;boxtag=bc8zpm" frameborder="0" allow="autoplay" allowfullscreen="1" height="400" width="100%"></iframe>`)
 
 // Change size of chatwrap contents, modified for shitbox
 function handleVideoResize() {
