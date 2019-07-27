@@ -1,7 +1,10 @@
 extends layout.pug
 
 mixin posterLink({ id, imdb }, height)
-  a.posterLink(href=`/s/${id}`): img.posterImg(src=`//media.toonreboot.com/posters/${imdb}.h${height}.jpeg`)
+  .col-xs-2.col-m-2
+    .posterBox
+      a.posterLink(href=`/s/${id}`)
+        img.posterImg(src=`//media.toonreboot.com/posters/${imdb}.h${height}.jpeg`)
 
 mixin generatePosterBlock()
   .col-lg-12.col-md-12
