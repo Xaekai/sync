@@ -1,7 +1,7 @@
 extends layout.pug
 
 mixin posterLink({ id, imdb })
-  a.posterLink(href=`/s/${id}`): img.posterLinkImg(src=`//media.toonreboot.com/posters/${imdb}.h240.jpeg`)
+  a.posterLink(href=`/s/${id}`): img.posterImg(src=`//media.toonreboot.com/posters/${imdb}.h240.jpeg`)
 
 mixin generatePosterLinks()
   -
@@ -32,7 +32,7 @@ mixin generatePosterLinks()
       streamsChunks.push(streams.slice(4 * i, 4 * (i + 1)));
     }
   each chunk in streamsChunks
-    .row#posterRow
+    .row.posterRow
       each stream in chunk
         -console.log('Poster linking chunk:', stream)
         +posterLink(stream)
