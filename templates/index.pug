@@ -15,6 +15,7 @@ mixin generatePosterBlock()
 
 mixin generatePosters()
   -
+    const oneGiantRow = true;
     const posterHeight = 240;
     const postersPerRow = 5;
     const streamsChunks = [];
@@ -43,10 +44,16 @@ mixin generatePosters()
     for (var i = 0; i < Math.ceil(streams.length / postersPerRow); i++) {
       streamsChunks.push(streams.slice(postersPerRow * i, postersPerRow * (i + 1)));
     }
-  each chunk in streamsChunks
+  if oneGiantRow
     .row.posterRow
-      each stream in chunk
-        +posterLink(stream, posterHeight)
+      each chunk in streamsChunks
+        each stream in chunk
+          +posterLink(stream, posterHeight)
+  else
+    each chunk in streamsChunks
+      .row.posterRow
+        each stream in chunk
+          +posterLink(stream, posterHeight)
 
 
 block content
