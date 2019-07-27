@@ -1,10 +1,20 @@
 extends layout.pug
 
-mixin posterLink({ id, imdb })
-  a.posterLink(href=`/s/${id}`): img.posterImg(src=`//media.toonreboot.com/posters/${imdb}.h240.jpeg`)
+mixin posterLink({ id, imdb }, height)
+  a.posterLink(href=`/s/${id}`): img.posterImg(src=`//media.toonreboot.com/posters/${imdb}.h${height}.jpeg`)
 
-mixin generatePosterLinks()
+mixin generatePosterBlock()
+  .col-lg-12.col-md-12
+    h2 Featured Streams
+    .row#posterBlock
+      .col-lg-12.col-md-12
+        +generatePosters()
+
+mixin generatePosters()
   -
+    const posterHeight = 240;
+    const postersPerRow = 5;
+    const streamsChunks = [];
     const streams = [
       { id: 'alwayssunny',   imdb: 'tt0472954', },
       { id: 'americandad',   imdb: 'tt0397306', },
@@ -24,25 +34,18 @@ mixin generatePosterLinks()
       { id: 'spongebob',     imdb: 'tt0206512', },
       { id: 'taahm',         imdb: 'tt0369179', },
       { id: 'theoffice',     imdb: 'tt0386676', },
-    ]
-
-    const streamsChunks = [];
-
-    for (var i = 0; i < Math.ceil(streams.length / 4); i++) {
-      streamsChunks.push(streams.slice(4 * i, 4 * (i + 1)));
+    ];
+    for (var i = 0; i < Math.ceil(streams.length / postersPerRow); i++) {
+      streamsChunks.push(streams.slice(postersPerRow * i, postersPerRow * (i + 1)));
     }
   each chunk in streamsChunks
     .row.posterRow
       each stream in chunk
-        -console.log('Poster linking chunk:', stream)
-        +posterLink(stream)
-
+        +posterLink(stream, posterHeight)
 
 
 block content
-  .row#posterBlock
-    .col-lg-9.col-md-9
-      +generatePosterLinks()
+  +generatePosterBlock()
 
   .col-lg-9.col-md-9
     h3 Channels
@@ -69,6 +72,4 @@ append footer
         location.href = "/#{channelPath}/" + $("#channelname").val();
       }
     });
-
-
 
