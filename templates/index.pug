@@ -4,7 +4,7 @@ mixin posterLink({ id, imdb }, height)
   .col-xs-2.col-m-2
     .posterBox
       a.posterLink(href=`/s/${id}`)
-        img.posterImg(src=`//media.toonreboot.com/posters/${imdb}.h${height}.jpeg`)
+        img.posterImg(src=`//media.toonreboot.com/posters/${imdb}.h${height}.jpeg?${Date.now()}`)
 
 mixin generatePosterBlock()
   .col-lg-12.col-md-12
