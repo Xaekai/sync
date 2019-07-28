@@ -1,10 +1,9 @@
 extends layout.pug
 
 mixin posterLink({ id, imdb }, height)
-  .col-xs-2.col-m-2
-    .posterBox
-      a.posterLink(href=`/s/${id}`)
-        img.posterImg(src=`//media.toonreboot.com/posters/${imdb}.h${height}.jpeg?${Date.now()}`)
+  .posterBox.col-md-2.col-sm-3
+    a.posterLink(href=`/s/${id}`)
+      img.posterImg(src=`//media.toonreboot.com/posters/${imdb}.h${height}.jpeg?${Date.now()}`)
 
 mixin generatePosterBlock()
   .col-lg-12.col-md-12
@@ -78,7 +77,7 @@ block content
     p.text-muted New channels can be registered from the <a href="/account/channels">My Channels</a> page.
 
 append head
-  link(href="/css/custom-index.css", rel="stylesheet")
+  link(href=`/css/custom-index.css?${Date.now()}`, rel="stylesheet")
 
 append footer
   script(type="text/javascript").

@@ -1,4 +1,11 @@
 /* ToonReboot Custom Index Style */
 
-.posterBox { padding: 0.5em }
-.posterImg { border-radius: 0.2em }
+.posterBox {
+       padding: 0.5em;
+}
+
+.posterImg {
+       min-width: 160px;
+       display: block;
+       border-radius: 0.2em;
+}
