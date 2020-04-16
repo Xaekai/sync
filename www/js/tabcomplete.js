@@ -1,8 +1,8 @@
-CyTube.tabCompleteMethods = {};
+_3reo.tabCompleteMethods = {};
 
 // Bash-style completion
 // Only completes as far as it is possible to maintain uniqueness of the completion.
-CyTube.tabCompleteMethods['Longest unique match'] = function (input, position, options, context) {
+_3reo.tabCompleteMethods['Longest unique match'] = function (input, position, options, context) {
     var lower = input.toLowerCase();
     // First, backtrack to the nearest whitespace to find the
     // incomplete string that should be completed.
@@ -77,7 +77,7 @@ CyTube.tabCompleteMethods['Longest unique match'] = function (input, position, o
 
 // Zsh-style completion.
 // Always complete a full option, and cycle through available options on successive tabs
-CyTube.tabCompleteMethods['Cycle options'] = function (input, position, options, context) {
+_3reo.tabCompleteMethods['Cycle options'] = function (input, position, options, context) {
     if (typeof context.start !== 'undefined') {
         var currentCompletion = input.substring(context.start, position - 1);
         if (currentCompletion === context.matches[context.tabIndex]) {

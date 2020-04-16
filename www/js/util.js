@@ -664,7 +664,7 @@ function showUserOptions() {
 
 function saveUserOptions() {
     USEROPTS.theme                = $("#us-theme").val();
-    createCookie("cytube-theme", USEROPTS.theme, 1000);
+    createCookie("_3reo-theme", USEROPTS.theme, 1000);
     USEROPTS.layout               = $("#us-layout").val();
     USEROPTS.ignore_channelcss    = $("#us-no-channelcss").prop("checked");
     USEROPTS.ignore_channeljs     = $("#us-no-channeljs").prop("checked");
@@ -2164,7 +2164,7 @@ function modalAlert(options) {
     }
 
     var modal = makeModal();
-    modal.addClass("cytube-modal-alert");
+    modal.addClass("_3reo-modal-alert");
     modal.removeClass("fade");
     modal.find(".modal-dialog").addClass("modal-dialog-nonfluid");
 
@@ -2728,7 +2728,7 @@ function execEmotes(msg) {
         return msg;
     }
 
-    if (CyTube.featureFlag && CyTube.featureFlag.efficientEmotes) {
+    if (_3reo.featureFlag && _3reo.featureFlag.efficientEmotes) {
         return execEmotesEfficient(msg);
     }
 
@@ -3391,7 +3391,7 @@ function backoffRetry(fn, cb, options) {
     fn(callback);
 }
 
-CyTube.ui.changeVideoWidth = function uiChangeVideoWidth(direction) {
+_3reo.ui.changeVideoWidth = function uiChangeVideoWidth(direction) {
     var body = document.body;
     if (/hd/.test(body.className)) {
         throw new Error("ui::changeVideoWidth does not work with the 'hd' layout");
@@ -3425,7 +3425,7 @@ CyTube.ui.changeVideoWidth = function uiChangeVideoWidth(direction) {
     handleVideoResize();
 };
 
-CyTube._internal_do_not_use_or_you_will_be_banned.addUserToList = function (data, removePrev) {
+_3reo._internal_do_not_use_or_you_will_be_banned.addUserToList = function (data, removePrev) {
     if (removePrev) {
         var user = findUserlistItem(data.name);
         // Remove previous instance of user, if there was one

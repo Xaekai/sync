@@ -6,7 +6,7 @@
   // Set in the head template.
   var theme = DEFAULT_THEME;
   for (var i = 0; i < c.length; i++) {
-    if (c[i].indexOf("cytube-theme=") === 0) {
+    if (c[i].indexOf("_3reo-theme=") === 0) {
       theme = c[i].split("=")[1];
       break;
     }

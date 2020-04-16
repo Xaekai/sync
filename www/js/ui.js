@@ -1,18 +1,18 @@
 /* window focus/blur */
-CyTube.ui.onPageFocus = function () {
+_3reo.ui.onPageFocus = function () {
     FOCUSED = true;
     clearInterval(TITLE_BLINK);
     TITLE_BLINK = false;
     document.title = PAGETITLE;
 };
 
-CyTube.ui.onPageBlur = function (event) {
+_3reo.ui.onPageBlur = function (event) {
     FOCUSED = false;
 };
 
-$(window).focus(CyTube.ui.onPageFocus).blur(CyTube.ui.onPageBlur);
+$(window).focus(_3reo.ui.onPageFocus).blur(_3reo.ui.onPageBlur);
 // See #783
-$(".modal").focus(CyTube.ui.onPageFocus);
+$(".modal").focus(_3reo.ui.onPageFocus);
 
 $("#togglemotd").click(function () {
     var hidden = $("#motd").css("display") === "none";
@@ -118,13 +118,13 @@ $("#guestname").keydown(function (ev) {
 });
 
 
-CyTube.chatTabCompleteData = {
+_3reo.chatTabCompleteData = {
     context: {}
 };
 
 function chatTabComplete(chatline) {
-    if (!CyTube.tabCompleteMethods) {
-        console.error('Missing CyTube.tabCompleteMethods!');
+    if (!_3reo.tabCompleteMethods) {
+        console.error('Missing _3reo.tabCompleteMethods!');
         return;
     }
     var currentText = chatline.value;
@@ -149,16 +149,16 @@ function chatTabComplete(chatline) {
     });
 
     var method = USEROPTS.chat_tab_method;
-    if (!CyTube.tabCompleteMethods[method]) {
+    if (!_3reo.tabCompleteMethods[method]) {
         console.error("Unknown chat tab completion method '" + method + "', using default");
         method = "Cycle options";
     }
 
-    var result = CyTube.tabCompleteMethods[method](
+    var result = _3reo.tabCompleteMethods[method](
             currentText,
             currentPosition,
             options,
-            CyTube.chatTabCompleteData.context
+            _3reo.chatTabCompleteData.context
     );
 
     chatline.value = result.text;
@@ -925,7 +925,7 @@ $("#cs-jstext").bind("input", handleCSSJSTooLarge.bind($("#cs-jstext")[0],
 
 $("#resize-video-larger").click(function () {
     try {
-        CyTube.ui.changeVideoWidth(1);
+        _3reo.ui.changeVideoWidth(1);
     } catch (error) {
         console.error(error);
     }
@@ -933,7 +933,7 @@ $("#resize-video-larger").click(function () {
 
 $("#resize-video-smaller").click(function () {
     try {
-        CyTube.ui.changeVideoWidth(-1);
+        _3reo.ui.changeVideoWidth(-1);
     } catch (error) {
         console.error(error);
     }

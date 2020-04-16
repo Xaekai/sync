@@ -51,7 +51,7 @@
     "pretest": "npm run lint",
     "postinstall": "./postinstall.sh",
     "server-dev": "babel -D --watch --source-maps --verbose --out-dir lib/ src/",
-    "generate-userscript": "$npm_node_execpath gdrive-userscript/generate-userscript $@ > www/js/cytube-google-drive.user.js",
+    "generate-userscript": "$npm_node_execpath gdrive-userscript/generate-userscript $@ > www/js/3reo-google-drive.user.js",
     "test": "mocha --recursive --exit test",
     "integration-test": "mocha --recursive --exit integration_test"
   },

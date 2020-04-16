@@ -51,12 +51,12 @@ var LASTCHAT = {
     name: ""
 };
 var FOCUSED = true;
-var PAGETITLE = "CyTube";
+var PAGETITLE = "3REO";
 var TITLE_BLINK;
 var CHATSOUND = new Audio("/boop.wav");
 var KICKED = false;
-var NAME = readCookie("cytube_uname");
-var SESSION = readCookie("cytube_session");
+var NAME = readCookie("_3reo_uname");
+var SESSION = readCookie("_3reo_session");
 var LEADTMR = false;
 var PL_FROM = "";
 var PL_AFTER = "";
@@ -68,18 +68,18 @@ var NO_STORAGE = typeof localStorage == "undefined" || localStorage === null;
 var SOCKETIO_CONNECT_ERROR_COUNT = 0;
 var HAS_CONNECTED_BEFORE = false;
 var IMAGE_MATCH = /<img\s[^>]*?src\s*=\s*['\"]([^'\"]*?)['\"][^>]*?>/gi;
-var CyTube = {};
-CyTube.ui = {
+var _3reo = {};
+_3reo.ui = {
     suppressedAnnouncementId: getOpt("suppressed_announcement_id")
 };
-CyTube.featureFlag = {
+_3reo.featureFlag = {
     efficientEmotes: true
 };
-CyTube.channelCustomizations = {
+_3reo.channelCustomizations = {
     cssHash: null,
     jsHash: null
 };
-CyTube._internal_do_not_use_or_you_will_be_banned = {};
+_3reo._internal_do_not_use_or_you_will_be_banned = {};
 
 function getOpt(k) {
     var v = NO_STORAGE ? readCookie(k) : localStorage.getItem(k);

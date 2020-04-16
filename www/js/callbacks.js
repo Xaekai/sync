@@ -73,8 +73,8 @@ Callbacks = {
 
     announcement: function(data) {
         // Suppress this announcement for people who have already closed it
-        if (data.id && CyTube.ui.suppressedAnnouncementId
-                && data.id === CyTube.ui.suppressedAnnouncementId) {
+        if (data.id && _3reo.ui.suppressedAnnouncementId
+                && data.id === _3reo.ui.suppressedAnnouncementId) {
             return;
         }
         $("#announcements").html("");
@@ -83,7 +83,7 @@ Callbacks = {
             .appendTo($("#announcements"));
         if (data.id) {
             announcement.find(".close").click(function suppressThisAnnouncement() {
-                CyTube.ui.suppressedAnnouncementId = data.id;
+                _3reo.ui.suppressedAnnouncementId = data.id;
                 setOpt("suppressed_announcement_id", data.id);
             });
         }
@@ -185,7 +185,7 @@ Callbacks = {
             .html("&times;");
         $("<h4/>").appendTo(div).text("Unregistered channel");
         $("<p/>").appendTo(div)
-            .html("This channel is not registered to a CyTube account.  You can still " +
+            .html("This channel is not registered to a 3REO account.  You can still " +
                   "use it, but some features will not be available.  To register a " +
                   "channel to your account, visit your <a href='/account/channels'>" +
                   "channels</a> page.");
@@ -303,7 +303,7 @@ Callbacks = {
     },
 
     channelCSSJS: function(data) {
-        if (CyTube.channelCustomizations.cssHash !== data.cssHash) {
+        if (_3reo.channelCustomizations.cssHash !== data.cssHash) {
             $("#chancss").remove();
             CHANNEL.css = data.css;
             $("#cs-csstext").val(data.css);
@@ -318,11 +318,11 @@ Callbacks = {
             }
 
             if (data.cssHash) {
-                CyTube.channelCustomizations.cssHash = data.cssHash;
+                _3reo.channelCustomizations.cssHash = data.cssHash;
             }
         }
 
-        if (CyTube.channelCustomizations.jsHash !== data.jsHash) {
+        if (_3reo.channelCustomizations.jsHash !== data.jsHash) {
             $("#chanjs").remove();
             CHANNEL.js = data.js;
             $("#cs-jstext").val(data.js);
@@ -352,7 +352,7 @@ Callbacks = {
             }
 
             if (data.jsHash) {
-                CyTube.channelCustomizations.jsHash = data.jsHash;
+                _3reo.channelCustomizations.jsHash = data.jsHash;
             }
         }
     },
@@ -523,13 +523,13 @@ Callbacks = {
     userlist: function(data) {
         $(".userlist_item").remove();
         for(var i = 0; i < data.length; i++) {
-            CyTube._internal_do_not_use_or_you_will_be_banned.addUserToList(data[i], false);
+            _3reo._internal_do_not_use_or_you_will_be_banned.addUserToList(data[i], false);
         }
         sortUserlist();
     },
 
     addUser: function(data) {
-        CyTube._internal_do_not_use_or_you_will_be_banned.addUserToList(data, true);
+        _3reo._internal_do_not_use_or_you_will_be_banned.addUserToList(data, true);
         sortUserlist();
     },
 
@@ -1171,7 +1171,7 @@ Callbacks = {
     }
 }
 
-var SOCKET_DEBUG = localStorage.getItem('cytube_socket_debug') === 'true';
+var SOCKET_DEBUG = localStorage.getItem('_socket_debug') === 'true';
 setupCallbacks = function() {
     for(var key in Callbacks) {
         (function(key) {

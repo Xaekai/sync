@@ -28,10 +28,10 @@ lines.forEach(function (line) {
 });
 
 fs.writeFileSync(
-    path.join(__dirname, '..', 'www', 'js', 'cytube-google-drive.user.js'),
+    path.join(__dirname, '..', 'www', 'js', '3reo-google-drive.user.js'),
     userscriptOutput
 );
 fs.writeFileSync(
-    path.join(__dirname, '..', 'www', 'js', 'cytube-google-drive.meta.js'),
+    path.join(__dirname, '..', 'www', 'js', '3reo-google-drive.meta.js'),
     metaOutput
 );
