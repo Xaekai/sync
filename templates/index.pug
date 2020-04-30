@@ -31,7 +31,7 @@ block content
                 td: a(href=`/${channelPath}/${chan.name}`) #{chan.pagetitle} (#{chan.name})
                 td.chanPop   = chan.usercount
                 td.mediaNow  = chan.mediatitle
-                td.mediaNext -// = chan.mediapending
+                td.mediaNext = chan.mediapending
   .col-lg-3.col-md-3
     h3 Enter Channel
     input#channelname.form-control(type="text", placeholder="Channel Name")
