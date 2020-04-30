@@ -96,6 +96,7 @@ class PartitionChannelIndex {
             return {
                 name: channel.name,
                 mediatitle: channel.mediatitle,
+                medianext: channel.medianext,
                 pagetitle: channel.pagetitle,
                 usercount: channel.usercount
             };

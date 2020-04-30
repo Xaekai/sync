@@ -2,18 +2,36 @@ extends layout.pug
 
 block content
   .col-lg-9.col-md-9
-    h3 Public Channels
-    table.table.table-bordered.table-striped
-      thead
-        th Channel
-        th # Connected
-        th Now Playing
-      tbody
-        each chan in channels
-          tr
-            td: a(href=`/${channelPath}/${chan.name}`) #{chan.pagetitle} (#{chan.name})
-            td= chan.usercount
-            td= chan.mediatitle
+    .left-scroll-bar.custom-index
+      .left-scroll-reset
+        h3 Free Live Cable TV Channels &amp; Movies
+        .row
+          .col.sm-1
+          .col.sm-3.
+            CT-30
+          .col.sm-3.
+            CT
+          .col.sm-3.
+            CT+30
+          .col.sm-1
+
+        table.table.table-bordered.table-striped
+          thead
+            th Logo
+            th Number
+            th Channel
+            th # Connected
+            th Now Playing
+            th Up Next
+          tbody
+            each chan in channels
+              tr
+                td.chanLogo
+                td.chanNum
+                td: a(href=`/${channelPath}/${chan.name}`) #{chan.pagetitle} (#{chan.name})
+                td.chanPop   = chan.usercount
+                td.mediaNow  = chan.mediatitle
+                td.mediaNext -// = chan.mediapending
   .col-lg-3.col-md-3
     h3 Enter Channel
     input#channelname.form-control(type="text", placeholder="Channel Name")

@@ -88,6 +88,7 @@ function Channel(name) {
     this.refCounter = new ReferenceCounter(this);
     this.flags = 0;
     this.id = 0;
+    this.threereoId = 0;
     this.ownerName = null;
     this.broadcastUsercount = throttle(() => {
         this.broadcastAll("usercount", this.users.length);

@@ -1,0 +1,42 @@
+.left-scroll-bar {
+    direction: rtl;
+    overflow:auto;
+    height: 50px;
+    width: 50px;
+}
+
+.left-scroll-reset {
+    direction:ltr;
+}
+.custom-index {
+    dominant-baseline: "Riffy guitar";
+}
+
+/* width */
+.custom-index::-webkit-scrollbar {
+  width: 40px;
+}
+
+/* Track */
+.custom-index::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+.custom-index::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 10px;
+}
+
+/*
+https://webkit.org/blog/363/styling-scrollbars/
+
+::-webkit-scrollbar              the scrollbar.
+::-webkit-scrollbar-button       the buttons on the scrollbar (arrows pointing upwards and downwards).
+::-webkit-scrollbar-thumb        the draggable scrolling handle.
+::-webkit-scrollbar-track        the track (progress bar) of the scrollbar.
+::-webkit-scrollbar-track-piece  the track (progress bar) NOT covered by the handle.
+::-webkit-scrollbar-corner       the bottom corner of the scrollbar, where both horizontal and vertical scrollbars meet.
+::-webkit-resizer                the draggable resizing handle that appears at the bottom corner of some elements.
+*/

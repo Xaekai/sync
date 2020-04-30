@@ -235,6 +235,13 @@ PlaylistModule.prototype.unload = function () {
 PlaylistModule.prototype.packInfo = function (data, isAdmin) {
     if (this.current) {
         data.mediatitle = this.current.media.title;
+        let next = this.current.next || this.items.first;
+        if (next) {
+            data.medianext = next.mediatitle;
+        } else {
+            data.medianext = "(Nothing Pending)"
+        }
+
         if (isAdmin) {
             data.mediaLink = util.formatLink(
                 this.current.media.id,
@@ -244,6 +251,7 @@ PlaylistModule.prototype.packInfo = function (data, isAdmin) {
         }
     } else {
         data.mediatitle = "(Nothing Playing)";
+        data.medianext = "(Nothing Pending)";
         if (isAdmin) {
             data.mediaLink = "#";
         }
