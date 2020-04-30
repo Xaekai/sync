@@ -1,8 +1,6 @@
 .left-scroll-bar {
     direction: rtl;
     overflow:auto;
-    height: 50px;
-    width: 50px;
 }
 
 .left-scroll-reset {
